@@ -1,6 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import { resolve } from '$app/paths';
+	import Button from '$lib/components/Button.svelte';
 
 	const { children } = $props();
 
@@ -14,21 +15,48 @@
 		{ name: 'Reddit', url: 'https://reddit.com/r/thundr' }
 	];
 </script>
-
-<header class="header-content">
-	<div class="logo"><a href={resolve('/')}>
-	<img src="/logo.png" alt="Logo">
-	</a></div>
-	<div class="nav-links">
-		<a href={resolve('/')}>Home</a>
-		<a href={resolve('/about')}>About Us</a>
-		<a href={resolve('/products')}>Products</a>
-		<a href={resolve('/support')}>Support</a>
-	</div>
-	<div class="contact">
-		<button>Contact Us</button>
-	</div>
-</header>
+<div class="postion-fixed top-20 left-0 w-full">
+	<header
+		class="clip-pointed fixed 
+		top-4 left-1/2 z-50 
+		grid 
+		min-h-[75px] w-[calc(100%_-_2rem)] max-w-[1250px] -translate-x-1/2 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] 
+		items-center 
+		bg-background px-8 shadow-soft [--point-size:24px] max-[760px]:grid-cols-[minmax(0,1fr)_auto] max-[760px]:gap-y-3 max-[760px]:px-6"
+	>
+		<a class="flex items-center justify-self-start" href={resolve('/')}>
+			<img class="h-14 max-w-79" src="/logo.png" alt="Logo" />
+		</a>
+		<div
+			class="flex items-center justify-center gap-8 justify-self-center text-sm font-semibold text-text-lt max-[760px]:col-span-full max-[760px]:row-start-2 max-[760px]:flex-wrap max-[760px]:gap-x-5 max-[760px]:gap-y-2"
+		>
+			<a class="hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent" href={resolve('/')}>
+				Home
+			</a>
+			<a
+				class="hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+				href={resolve('/about')}
+			>
+				About Us
+			</a>
+			<a
+				class="hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+				href={resolve('/products')}
+			>
+				Products
+			</a>
+			<a
+				class="hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent"
+				href={resolve('/support')}
+			>
+				Support
+			</a>
+		</div>
+		<div class="justify-self-end max-[760px]:col-start-2 max-[760px]:row-start-1">
+			<Button />
+		</div>
+	</header>
+</div>
 
 {@render children()}
 

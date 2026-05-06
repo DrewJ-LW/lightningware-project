@@ -1,3 +1,73 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@theme {
+	--color-text: #000a28;
+	--color-background-dk: #000a28;
+	--color-background: #001f7f;
+	--color-accent: #ffc100;
+	--color-text-dk: #000a28;
+	--color-text-lt: #ffffff;
+	--color-yellow-dk: #332a20;
+	--color-yellow-md: #e6ad3a;
+
+	--font-sans: Inter, system-ui, sans-serif;
+
+	--radius-sm: 0.25rem;
+	--radius-md: 0.5rem;
+
+	--shadow-soft: 0 12px 30px rgb(16 24 40 / 0.08);
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply min-h-screen bg-background-dk font-sans text-text-lt antialiased;
+	}
+
+	a {
+		@apply transition-colors;
+	}
+
+	img {
+		@apply max-w-full;
+	}
+
+	h1 {
+		@apply text-4xl font-bold tracking-normal text-text-lt md:text-6xl;
+	}
+
+	h2 {
+		@apply text-3xl font-bold tracking-normal text-text-lt md:text-4xl;
+	}
+
+	p {
+		@apply leading-7 text-text-lt/80;
+	}
+}
+
+@layer components {
+	.page-shell {
+		@apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+	}
+
+	.clip-pointed {
+		clip-path: polygon(
+			0 50%,
+			var(--point-size, 12px) 0,
+			calc(100% - var(--point-size, 12px)) 0,
+			100% 50%,
+			calc(100% - var(--point-size, 12px)) 100%,
+			var(--point-size, 12px) 100%
+		);
+	}
+
+	.brand-button {
+		--point-size: 12px;
+		@apply inline-flex items-center justify-center bg-accent px-8 py-3 text-sm font-semibold text-text-dk transition-colors duration-200 hover:bg-yellow-md focus:outline-none focus:ring-2 focus:ring-background-dk disabled:cursor-not-allowed disabled:opacity-50;
+	}
+}
