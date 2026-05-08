@@ -362,8 +362,8 @@
 				mouseControls: false,
 				touchControls: false,
 				gyroControls: false,
-				minHeight: 200,
-				minWidth: 200,
+				minHeight: 100,
+				minWidth: 100,
 				scale: 1,
 				scaleMobile: 1,
 				color: accentColor,
@@ -392,7 +392,7 @@
 <style>
 	.globe {
 		position: relative;
-		width: min(100%, 42rem);
+		width: min(100%, 40rem);
 		height: clamp(16rem, 42vw, 32rem);
 		min-height: 12.5rem;
 		overflow: hidden;

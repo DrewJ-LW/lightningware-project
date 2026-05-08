@@ -8,11 +8,18 @@
 	--color-background: #001f7f;
 	--color-accent: #ffc100;
 	--color-text-dk: #000a28;
+	--color-border-dk: #0c1940;
+	--color-dark-gray: #1d1d1d;
 	--color-text-lt: #ffffff;
 	--color-yellow-dk: #332a20;
 	--color-yellow-md: #e6ad3a;
 
-	--font-sans: Inter, system-ui, sans-serif;
+	--font-sans: 'Exo 2', var(--font-fallback);
+	--font-fallback: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+	--font-heading: 'Exo 2', var(--font-fallback);
+
+	/* variable for point size, used to change angle for clip-path */
+	--point-size: 24px;
 
 	--radius-sm: 0.25rem;
 	--radius-md: 0.5rem;
@@ -38,15 +45,15 @@
 	}
 
 	h1 {
-		@apply text-4xl font-bold tracking-normal text-text-lt md:text-6xl;
+		@apply text-4xl font-heading font-semibold tracking-normal text-text-lt md:text-7xl;
 	}
 
 	h2 {
-		@apply text-3xl font-bold tracking-normal text-text-lt md:text-4xl;
+		@apply text-3xl font-heading font-semibold tracking-normal text-text-lt md:text-4xl;
 	}
 
 	p {
-		@apply leading-7 text-text-lt/80;
+		@apply text-lg leading-7 font-semibold text-text-lt/80;
 	}
 }
 
@@ -66,8 +73,4 @@
 		);
 	}
 
-	.brand-button {
-		--point-size: 12px;
-		@apply inline-flex items-center justify-center bg-accent px-8 py-3 text-sm font-semibold text-text-dk transition-colors duration-200 hover:bg-yellow-md focus:outline-none focus:ring-2 focus:ring-background-dk disabled:cursor-not-allowed disabled:opacity-50;
-	}
 }
