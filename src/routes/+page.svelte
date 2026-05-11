@@ -2,6 +2,7 @@
     import Button from '$lib/components/Button.svelte';
     import Globe from '$lib/components/Globe.svelte';
     import Card from '$lib/components/Card.svelte';
+	import CallToAction from '$lib/components/CallToAction.svelte';
 
     const avatars = [
         { src: '/avatars/avatar1.jpg', alt: 'Avatar 1' },
@@ -11,7 +12,7 @@
 </script>
 
 <!-- Hero Section -->
-<div class="pt-50 px-5 mx-auto max-w-325 text-center grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-start">
+<div class="pt-50 px-5 body-width text-center grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-start">
     <!-- child 1 -->
     <div class="flex flex-col items-start gap-10 min-w-70 text-left">
         <h1>Innovating the <span class="text-accent">Future</span> of Social Technology</h1>
@@ -24,7 +25,7 @@
 
 
 <!-- Avatar Container -->
-<div class="avatar-container flex  items-center gap-4 mt-10 mx-auto max-w-325">
+<div class="avatar-container flex  items-center gap-4 mt-10 body-width">
     <div class="avatars  flex items-center ">
         {#each avatars as avatar, index (avatar.src)}
             <img
@@ -40,7 +41,7 @@
 
 <!-- About Section -->
 <div class="mt-20 py-30 px-5 flex flex-col  text-center bg-background">
-    <div class="mx-auto max-w-200">   
+    <div class="body-width px-30">   
         <p class="text-2xl font-heading tracking-wide text-accent">What we do</p>
         <h1 class="mb-10">About <span class="text-accent">Lightningware</span></h1>
         <p class='text-xl max-w-300 mx-auto mb-20'>We’re not an agency. We don’t build software for clients. We create and launch our own products, shaping the future of digital interactions. 
@@ -52,7 +53,7 @@
  
 
 <!-- Info section -->
- <div class="mx-auto max-w-7xl">
+ <div class="body-width">
     <div class="py-30 px-5 flex gap-10 text-center bg-background-dk">
         <div class="max-w-200 text-left">   
             <p class="text-2xl font-heading tracking-wide text-accent">Thundr</p>
@@ -78,18 +79,22 @@
 
 
 <!-- Circle section -->
-<div class="relative mt-20 py-30 px-5 flex flex-col items-center text-center overflow-hidden bg-[url('/gold-circle.png')] bg-no-repeat bg-center bg-contain bg-background-dk">
-    <div class="absolute inset-0 bg-background-dk/50"></div>
-    <div class="relative z-10 mx-auto max-w-2000 border border-accent rounded-3xl p-10 ">   
-        <Card icon="02-virtual-reality_1.gif" title="AI" description="Revolutionizing digital interaction with immersive technologies like AI"/>
+<div class="backgroundCircle relative mx-auto px-5 max-w-250 flex flex-col items-center text-center overflow-visible bg-[url('/gold-circle.png')] bg-no-repeat bg-center bg-contain bg-background-dk">
+    <div class="backgroundCircleDesat absolute inset-0 bg-background-dk/50"></div>
+
+    <div class="flex flex-col items-center z-10">   
+        <Card icon="02-virtual-reality_1.gif" title="AI" description="Revolutionizing digital interaction with immersive technologies like AI" iconClass="overflow-visible"/>
 
         <div>
-            <p class="m-50 text-4xl leading-normal font-normal max-w-150 text-white ">We’re just getting started. Our roadmap includes bold ventures into <span class="text-accent">social entertainment</span>.</p>
+            <p class="m-20 text-4xl leading-normal font-normal max-w-150 text-white ">We’re just getting started. Our roadmap includes bold ventures into <span class="text-accent">social entertainment</span>.</p>
         </div>
 
-        <div class="flex">
+        <div class="flex place-content-between w-full ">
             <Card icon="11-love.gif" title="Dating" description="Redefining modern romance through innovative dating inititives"/>
             <Card icon="21-3D_1.gif" title="And more" description="And more innovative solutions are on the horizon, reshaping the future of connections"/>
         </div>
     </div>
 </div>
+
+<!-- call to action -->
+<CallToAction />

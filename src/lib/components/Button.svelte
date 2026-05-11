@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
+	import type { Snippet } from 'svelte';
 
 	type Props = {
 		type?: 'button' | 'submit' | 'reset';
@@ -7,6 +8,7 @@
 		link?: string;
 		text?: string;
 		class?: string;
+		children?: Snippet;
 	};
 
 	let {
@@ -14,7 +16,8 @@
 		disabled = false,
 		link = '/support',
 		text = 'Contact Us',
-		class: className = ''
+		class: className = '',
+		children
 	}: Props = $props();
 
 	const classes = 'brand-button button-polygon';
@@ -34,7 +37,11 @@
 		class={`${classes} ${disabledClasses}`}
 	>
 		<span class={`${faceClasses} ${className}`}>
-			{text}
+			{#if children}
+				{@render children()}
+			{:else}
+				{text}
+			{/if}
 		</span>
 	</a>
 {:else if link}
@@ -44,13 +51,21 @@
 		class={`${classes} ${disabledClasses}`}
 	>
 		<span class={`${faceClasses} ${className}`}>
-			{text}
+			{#if children}
+				{@render children()}
+			{:else}
+				{text}
+			{/if}
 		</span>
 	</a>
 {:else}
 	<button {type} {disabled} class={`${classes} ${disabledClasses}`}>
 		<span class={`${faceClasses} ${className}`}>
-			{text}
+			{#if children}
+				{@render children()}
+			{:else}
+				{text}
+			{/if}
 		</span>
 	</button>
 {/if}
@@ -101,7 +116,7 @@
 			align-items: center;
 			justify-content: center;
 			background-color: var(--color-accent);
-			padding: 0.75rem 2rem;
+			padding: var(--button-padding, 0.75rem 2rem);
 			font-family: var(--font-heading);
 			font-size: 1.125rem;
 			font-weight: 600;
