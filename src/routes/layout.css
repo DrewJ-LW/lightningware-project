@@ -76,7 +76,7 @@
 	}
 
 	.body-width {
-		@apply w-full max-w-7xl mx-auto;
+		@apply w-full max-w-11/12 md:max-w-7xl mx-auto p-5 md:p-0;
 	}
 
 }

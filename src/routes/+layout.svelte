@@ -98,7 +98,7 @@
 
 		<div class="company-info w-9/10 mx-auto flex flex-col md:flex-row place-content-between items-center border-t py-5  border-accent">
 			<h3 class="w-full">© Lightningware {year}</h3>
-			<div class="footer-social-links body-width mx-5">
+			<div class="footer-social-links body-width max-w-full px-0">
 				<ul class="flex place-content-between md:place-content-end">
 					{#each socialLinks as link (link.url)}
 						<li class="w-13.5 h-10 p-0 md:ml-5">
