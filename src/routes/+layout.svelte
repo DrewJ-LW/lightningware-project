@@ -34,15 +34,14 @@
 
 
 <header
-	class="fixed md:relative
-	top-4 md:mx-auto z-50
-	flex 
-	place-content-between
+	class="fixed
+	top-4 left-0 right-0 md:mx-auto z-50 
 	overflow-visible
-	md:grid 
 	px-6
-	min-h-[75px] max-h-[75px] w-screen md:w-[calc(100%_-_2rem)] md:max-w-[1300px] -md:translate-x-1/2 grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] 
-	items-center 
+	flex w-screen
+	min-h-[75px] max-h-[75px] md:w-[calc(100%_-_2rem)] md:max-w-[1300px] 
+	md:grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] 
+	items-center place-content-between
 	bg-transparent"
 >
 	<div class="clip-pointed pointer-events-none absolute inset-0 -z-10 bg-background" aria-hidden="true"></div>
@@ -63,44 +62,46 @@
 {@render children()}
 
 <footer>
-	<div class="footer-content max-w-7xl mx-auto rounded-3xl bg-background">
+	<div class="footer-content md:max-w-7xl mx-auto rounded-3xl bg-background">
 
-		<div class="p-15 flex flex-row gap-20">
-			<div class="max-w-150 flex flex-col gap-fgap">
+		<div class="body-width p-5 md:p-15 flex flex-col md:flex-row gap-5 md:gap-20">
+			<div class="md:max-w-150 flex flex-col gap-fgap order-3 md:order-first">
 				<Logo />
 				<p>Driving innovation in social and entertainment technology to create meaningful digital experiences</p>
 			</div>
-			<div class="flex flex-col gap-10">
-				<h2>Quick Links</h2>
-				<ul class="flex flex-col gap-fgap">
-					{#each navLinks as link (link.href)}
+			<div class="flex gap-10 body-width">
+				<div>
+					<h2 class="mb-3">Quick Links</h2>
+					<ul class="flex flex-col gap-fgap">
+						{#each navLinks as link (link.href)}
+							<li>
+								<a href={resolve(link.href)}>{link.name}</a>
+							</li>
+						{/each}
+					</ul>
+				</div>
+				<div class="flex flex-col gap-10">
+					<h2>Legal</h2>
+					<ul class="flex flex-col gap-fgap">
 						<li>
-							<a href={resolve(link.href)}>{link.name}</a>
+							<a href={resolve('/privacy')}>Privacy Policy</a>	
 						</li>
-					{/each}
-				</ul>
-			</div>
-			<div class="flex flex-col gap-10">
-				<h2>Legal</h2>
-				<ul class="flex flex-col gap-fgap">
-					<li>
-						<a href={resolve('/privacy')}>Privacy Policy</a>	
-					</li>
-					<li>
-						<a href={resolve('/TOS')}>Terms of Service</a>
-					</li>
-				</ul>
+						<li>
+							<a href={resolve('/TOS')}>Terms of Service</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 
 
 
-		<div class="company-info w-9/10 mx-auto flex place-content-between items-center border-t py-5  border-accent">
-			<h3>© Lightningware {year}</h3>
-			<div class="footer-social-links">
-				<ul class="flex">
+		<div class="company-info w-9/10 mx-auto flex flex-col md:flex-row place-content-between items-center border-t py-5  border-accent">
+			<h3 class="w-full">© Lightningware {year}</h3>
+			<div class="footer-social-links body-width mx-5">
+				<ul class="flex place-content-between md:place-content-end">
 					{#each socialLinks as link (link.url)}
-						<li class="w-13.5 h-10 p-0 ml-5">
+						<li class="w-13.5 h-10 p-0 md:ml-5">
 							<Button link={link.url} class="w-13.5 h-10 p-0">
 								<img src={link.icon} alt={`${link.name} icon`} class="h-5 w-5 p-0" />
 							</Button>
